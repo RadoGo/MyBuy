@@ -6,7 +6,8 @@ import {
   View,
   Navigator,
   PixelRatio,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native';
 
 /**
@@ -36,8 +37,7 @@ export default class BuyCarTitleComponent extends Component {
         </View>
         <View style={styles.otherbox}>
           <TouchableOpacity style={{marginRight:10}}>
-            <Image source={require('../../imgs/edit.png')}
-              resizeMode="contain" style={styles.img}/>
+            <Text>编辑</Text>
           </TouchableOpacity>
           <TouchableOpacity style={{marginRight:10}}>
             <Image source={require('../../imgs/message.png')}
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   textsbox:{
     flex:2,
     alignItems:'center',
-    justifyContent:'space-between',
+    justifyContent:'center',
     flexDirection:'row'
   },
 
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
   },
 
   img:{
-    width:26,
-    height:26
+    width:20,
+    height:20
   },
 
   text:{

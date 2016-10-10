@@ -64,7 +64,7 @@ export default class ShopListComponent extends Component {
     let rateNum = rowData.rateNum;
     let shopId = rowData.id;
     return(
-      <TouchableOpacity style={styles.shopbox} onPress={(shopId)=>this._pressEven(shopId)}>
+      <TouchableOpacity style={styles.shopbox} onPress={()=>this._pressEven(shopId)}>
         <Image style={styles.shopimg} source={{uri:imgUrl}} resizeMode="contain"/>
         <View style={styles.shopinfobox}>
           <Text style={styles.shopnametext}>{name}</Text>

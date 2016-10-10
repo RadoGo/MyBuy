@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  BackAndroid
 } from 'react-native';
 
 import BuyCarTitleComponent from './buy-car-top-title.js';
@@ -19,6 +20,21 @@ export default class BuyCarListComponent extends Component {
     super(props);
   }
 
+  componentWillMount(){
+      currNavigator = this.props.navigator;
+      //监听返回健
+      BackAndroid.addEventListener('hardwareBackPress', function() {
+        if(currNavigator == null){
+          return false;
+        }
+        if(currNavigator.getCurrentRoutes().length === 1){
+          return false;
+        }
+        currNavigator.pop();
+        return true;
+      });
+  }
+
   //回退到上一个页面
   _goBack(){
     if(currNavigator == null){
@@ -31,7 +47,9 @@ export default class BuyCarListComponent extends Component {
   }
 
   render(){
-    <BuyCarTitleComponent onBackPress={()=>this._goBack()}></BuyCarTitleComponent>
+    return(
+      <BuyCarTitleComponent onBackPress={()=>this._goBack()}></BuyCarTitleComponent>
+    );
   }
 }
 
